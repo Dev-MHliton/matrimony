@@ -1,4 +1,3 @@
-
 const Reports = () => {
     return (
         <div>
@@ -6,5 +5,4 @@ const Reports = () => {
         </div>
     );
 };
-
 export default Reports;
