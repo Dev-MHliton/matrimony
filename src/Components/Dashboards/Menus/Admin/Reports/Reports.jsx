@@ -2,7 +2,7 @@
 const Reports = () => {
     return (
         <div>
-            <h1>This is Reports is very important!</h1>
+            <h1>This is Reports</h1>
         </div>
     );
 };
