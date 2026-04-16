@@ -206,6 +206,7 @@ const SearchBiodata = () => {
                                 >
                                     Favorite
                                 </button>
+
                             </div>
                         </div>
                     </div>
