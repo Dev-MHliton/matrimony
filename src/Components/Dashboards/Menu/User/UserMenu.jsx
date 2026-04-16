@@ -18,7 +18,7 @@ const UserMenu = [
     },
     {
         name: "My Favorites",
-        path: "/dashboard/user/favorites",
+        path: "/dashboard/favorites",
         icon: FaHeart,
     },
     {

@@ -186,7 +186,22 @@ const SearchBiodata = () => {
                                 </button>
 
                                 <button
-                                    onClick={() => navigate(`/biodata/${item._id}`)}
+                                    onClick={() => {
+                                        fetch("http://localhost:5000/api/favorites", {
+                                            method: "POST",
+                                            headers: {
+                                                "Content-Type": "application/json",
+                                            },
+                                            body: JSON.stringify({
+                                                biodataId: item._id,
+                                                email: "test@gmail.com",
+                                            }),
+                                        })
+                                            .then(res => res.json())
+                                            .then(() => {
+                                                navigate("/dashboard/favorites");
+                                            });
+                                    }}
                                     className="mt-3 bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 self-start"
                                 >
                                     Favorite

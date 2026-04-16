@@ -14,6 +14,7 @@ import UserSetting from "../Components/Dashboards/Menus/Users/Setting/UserSettin
 import BiodataDetails from "../Components/Dashboards/Menus/Users/CreateBiodata/BiodataDetails";
 import SecureRoute from "./Secure/SecureRoute";
 import SearchBiodata from "../Components/Dashboards/Menus/Users/SearchBiodata/SearchBiodata";
+import Favorites from "../Components/Dashboards/Menus/Users/Favorites/Favorites";
 
 export const router = createBrowserRouter([
     {
@@ -37,6 +38,7 @@ export const router = createBrowserRouter([
         children: [
             { path: "profile", Component: Profile },
             { path: "search", Component: SearchBiodata },
+            { path: "favorites", Component: Favorites },
             { path: "settings", Component: UserSetting },
         ]
     },
