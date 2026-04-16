@@ -177,12 +177,21 @@ const SearchBiodata = () => {
                             </div>
 
                             {/* Button */}
-                            <button
-                                onClick={() => navigate(`/biodata/${item._id}`)}
-                                className="mt-3 bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 self-start"
-                            >
-                                View Profile
-                            </button>
+                            <div className="flex justify-between">
+                                <button
+                                    onClick={() => navigate(`/biodata/${item._id}`)}
+                                    className="mt-3 bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 self-start"
+                                >
+                                    View Profile
+                                </button>
+
+                                <button
+                                    onClick={() => navigate(`/biodata/${item._id}`)}
+                                    className="mt-3 bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 self-start"
+                                >
+                                    Favorite
+                                </button>
+                            </div>
                         </div>
                     </div>
                 ))}
