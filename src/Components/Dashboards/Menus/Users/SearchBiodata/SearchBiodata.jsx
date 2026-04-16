@@ -49,7 +49,7 @@ const SearchBiodata = () => {
     };
 
     return (
-        <section className="px-6 md:px-12 relative">
+        <section className="px-6 pb-4 md:px-12 relative">
 
             {/* Section title */}
             <SectionTitle heading={"Search Biodata"} />
