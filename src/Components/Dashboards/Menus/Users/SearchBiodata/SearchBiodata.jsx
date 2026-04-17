@@ -182,7 +182,7 @@ const SearchBiodata = () => {
                                     onClick={() => navigate(`/biodata/${item._id}`)}
                                     className="mt-3 bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 self-start"
                                 >
-                                    View Profile
+                                    View
                                 </button>
 
                                 <button
