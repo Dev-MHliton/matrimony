@@ -48,6 +48,24 @@ const SearchBiodata = () => {
         fetchAllBiodata();
     };
 
+
+    const handleFavorite = (id) => {
+        fetch("http://localhost:5000/api/favorites", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                biodataId: id,
+                email: "test@gmail.com",
+            }),
+        })
+            .then(res => res.json())
+            .then(() => {
+                navigate("/dashboard/favorites");
+            })
+            .catch(err => console.error(err));
+    };
     return (
         <section className="px-6 pb-4 md:px-12 relative">
 
@@ -185,27 +203,6 @@ const SearchBiodata = () => {
                                     View
                                 </button>
 
-                                <button
-                                    onClick={() => {
-                                        fetch("http://localhost:5000/api/favorites", {
-                                            method: "POST",
-                                            headers: {
-                                                "Content-Type": "application/json",
-                                            },
-                                            body: JSON.stringify({
-                                                biodataId: item._id,
-                                                email: "test@gmail.com",
-                                            }),
-                                        })
-                                            .then(res => res.json())
-                                            .then(() => {
-                                                navigate("/dashboard/favorites");
-                                            });
-                                    }}
-                                    className="mt-3 bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 self-start"
-                                >
-                                    Favorite
-                                </button>
 
                             </div>
                         </div>
