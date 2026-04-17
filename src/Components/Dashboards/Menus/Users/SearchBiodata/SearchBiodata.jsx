@@ -6,6 +6,19 @@ import NoData from "../../../../../shared/NoData";
 
 const SearchBiodata = () => {
     const navigate = useNavigate();
+    const [favorites, setFavorites] = useState([]);
+    useEffect(() => {
+        fetchAllBiodata();
+
+        fetch("http://localhost:5000/api/favorites?email=test@gmail.com")
+            .then(res => res.json())
+            .then(data => {
+                const ids = data.map(item => item.biodataId);
+                setFavorites(ids);
+            })
+            .catch(err => console.error(err));
+
+    }, []);
 
     const [biodatas, setBiodatas] = useState([]);
     const [filters, setFilters] = useState({
@@ -50,21 +63,43 @@ const SearchBiodata = () => {
 
 
     const handleFavorite = (id) => {
-        fetch("http://localhost:5000/api/favorites", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                biodataId: id,
-                email: "test@gmail.com",
-            }),
-        })
-            .then(res => res.json())
-            .then(() => {
-                navigate("/dashboard/favorites");
+        const isFav = favorites.includes(id);
+
+        if (isFav) {
+            // REMOVE FAVORITE
+            fetch("http://localhost:5000/api/favorites", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    biodataId: id,
+                    email: "test@gmail.com",
+                }),
             })
-            .catch(err => console.error(err));
+                .then(() => {
+                    setFavorites(prev => prev.filter(item => item !== id));
+                })
+                .catch(err => console.error(err));
+
+        } else {
+            // ADD FAVORITE
+            fetch("http://localhost:5000/api/favorites", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    biodataId: id,
+                    email: "test@gmail.com",
+                }),
+            })
+                .then(res => res.json())
+                .then(() => {
+                    setFavorites(prev => [...prev, id]);
+                })
+                .catch(err => console.error(err));
+        }
     };
     return (
         <section className="px-6 pb-4 md:px-12 relative">
@@ -206,8 +241,10 @@ const SearchBiodata = () => {
                                 <button
                                     onClick={() => handleFavorite(item._id)}
                                     className="mt-3 bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 self-start"
+
                                 >
-                                    Favorite
+                                    {favorites.includes(item._id) ? "Remove" : "Favorite"}
+
                                 </button>
 
                             </div>
