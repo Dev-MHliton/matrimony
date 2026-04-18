@@ -250,7 +250,7 @@ const SearchBiodata = () => {
                                     onClick={() => handleFavorite(item._id)}
                                     className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm"
                                 >
-                                    {favorites.includes(item._id) ? "❤️ Remove" : "Favorite"}
+                                    {favorites.includes(item._id) ? "❤️ Remove" : "🤍 Favorite"}
                                 </button>
 
                             </div>
