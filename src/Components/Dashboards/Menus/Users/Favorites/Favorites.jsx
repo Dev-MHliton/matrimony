@@ -67,29 +67,30 @@ const Favorites = () => {
                 {favorites.map((fav) => (
                     <div
                         key={fav._id}
-                        className="bg-white rounded-xl shadow-md hover:shadow-lg transition flex overflow-hidden"
+                        className="bg-white rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-between p-4"
                     >
 
-                        {/* Image */}
-                        <div className="w-1/3">
-                            {fav.biodata?.profileImage ? (
-                                <img
-                                    src={fav.biodata.profileImage}
-                                    alt={fav.biodata?.name}
-                                    className="w-full h-full object-cover"
-                                />
-                            ) : (
-                                <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">
-                                    No Image
-                                </div>
-                            )}
-                        </div>
+                        {/* Left Side: Image + Info */}
+                        <div className="flex items-center gap-4">
 
-                        {/* Content */}
-                        <div className="flex-1 p-4 flex flex-col justify-between">
+                            {/* Circle Image */}
+                            <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                                {fav.biodata?.profileImage ? (
+                                    <img
+                                        src={fav.biodata.profileImage}
+                                        alt={fav.biodata?.name}
+                                        className="w-full h-full object-cover"
+                                    />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">
+                                        No Img
+                                    </div>
+                                )}
+                            </div>
 
+                            {/* Info */}
                             <div>
-                                <h3 className="font-bold text-lg text-gray-800">
+                                <h3 className="font-bold text-gray-800">
                                     {fav.biodata?.name || "No Name"}
                                 </h3>
 
@@ -97,29 +98,30 @@ const Favorites = () => {
                                     💼 {fav.biodata?.profession || "N/A"}
                                 </p>
 
-                                <p className="text-sm text-gray-600">
+                                <p className="text-xs text-gray-500">
                                     📍 {fav.biodata?.district || "Unknown"}
                                 </p>
                             </div>
 
-                            {/* Buttons */}
-                            <div className="flex gap-2 mt-3">
+                        </div>
 
-                                <button
-                                    onClick={() => navigate(`/biodata/${fav.biodataId}`)}
-                                    className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm"
-                                >
-                                    View
-                                </button>
+                        {/* Right Side: Buttons */}
+                        <div className="flex gap-2">
 
-                                <button
-                                    onClick={() => handleRemove(fav.biodataId)}
-                                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm"
-                                >
-                                    Remove
-                                </button>
+                            <button
+                                onClick={() => navigate(`/biodata/${fav.biodataId}`)}
+                                className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm"
+                            >
+                                View
+                            </button>
 
-                            </div>
+                            <button
+                                onClick={() => handleRemove(fav.biodataId)}
+                                className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm"
+                            >
+                                Remove
+                            </button>
+
                         </div>
 
                     </div>
