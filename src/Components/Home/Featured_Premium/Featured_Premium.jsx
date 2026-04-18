@@ -28,7 +28,6 @@ const Featured_Premium = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
                 {biodatas.map((item) => {
-                    // ✅ Premium logic: case-insensitive, trim, always shows "Premium"
                     const isPremium = item.profession
                         ? specialProfessions.some(prof =>
                             item.profession.trim().toLowerCase().includes(prof.toLowerCase())
@@ -40,7 +39,6 @@ const Featured_Premium = () => {
                             key={item._id}
                             className="bg-white rounded-lg shadow-md p-4 w-full max-w-xs flex flex-col hover:shadow-xl transition relative"
                         >
-                            {/* Image */}
                             <div className="w-full overflow-hidden rounded-md mb-4 shrink-0">
                                 {item.profileImage ? (
                                     <img
@@ -55,7 +53,6 @@ const Featured_Premium = () => {
                                 )}
                             </div>
 
-                            {/* Name + Profession */}
                             <div className="flex justify-between items-center mb-2">
                                 <h2 className="text-lg font-semibold text-gray-800">
                                     {item.name || "No Name"}
@@ -65,14 +62,12 @@ const Featured_Premium = () => {
                                 </p>
                             </div>
 
-                            {/* ✅ Premium Badge */}
                             {isPremium && (
                                 <span className="absolute top-3 right-3 bg-orange-500 text-white text-xs px-2 py-1 rounded z-10">
                                     Premium
                                 </span>
                             )}
 
-                            {/* About */}
                             <p className="text-xs text-gray-500 mb-2">
                                 {item.aboutMe
                                     ? item.aboutMe.slice(0, 60) + "..."
@@ -80,22 +75,13 @@ const Featured_Premium = () => {
                             </p>
 
                             <div className="flex items-center justify-between">
-                                <div className="">
+                                <p className="text-xs text-gray-500 mb-2">
+                                    📍 {item.district || "Unknown"}, {item.country || ""}
+                                </p>
 
-                                    {/* Location */}
-                                    <p className="text-xs text-gray-500 mb-2">
-                                        📍 {item.district || "Unknown"}, {item.country || ""}
-                                    </p>
-                                </div>
-                                <div className="">
-                                    {/* Rating */}
-                                    <div className="flex items-center mb-2">
-                                        <span className="text-yellow-500">★★★★★</span>
-                                    </div>
-                                </div>
+                                <div className="text-yellow-500">★★★★★</div>
                             </div>
 
-                            {/* View Profile Button */}
                             <button
                                 onClick={() => navigate(`/biodata/${item._id.toString()}`)}
                                 className="mt-auto w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 z-10 relative"
