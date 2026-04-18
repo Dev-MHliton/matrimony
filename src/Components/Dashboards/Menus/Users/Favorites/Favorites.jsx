@@ -79,7 +79,7 @@ const Favorites = () => {
                                     <img
                                         src={fav.biodata.profileImage}
                                         alt={fav.biodata?.name}
-                                        className="w-full h-full object-cover"
+                                        className="w-24 h-24 object-cover"
                                     />
                                 ) : (
                                     <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">
