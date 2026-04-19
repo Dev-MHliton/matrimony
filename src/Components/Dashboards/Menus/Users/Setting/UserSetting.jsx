@@ -11,6 +11,7 @@ const UserSetting = () => {
         age: "",
         gender: "",
         religion: "",
+        country: "",
         district: "",
         about: ""
     });
@@ -31,6 +32,7 @@ const UserSetting = () => {
                     age: data?.age || "",
                     gender: data?.gender || "",
                     religion: data?.religion || "",
+                    country: data?.country || "",
                     district: data?.district || "",
                     about: data?.about || ""
                 });
@@ -121,6 +123,14 @@ const UserSetting = () => {
                             value={profile.religion}
                             onChange={handleChange}
                             placeholder="Religion"
+                            className="w-full p-3 rounded-lg border bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+
+                        <input
+                            name="country"
+                            value={profile.country}
+                            onChange={handleChange}
+                            placeholder="Country"
                             className="w-full p-3 rounded-lg border bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
 

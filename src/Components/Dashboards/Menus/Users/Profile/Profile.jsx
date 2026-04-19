@@ -127,6 +127,7 @@ const Profile = () => {
                     <Info label="Age" value={bio?.age} />
                     <Info label="Gender" value={bio?.gender} />
                     <Info label="Religion" value={bio?.religion} />
+                    <Info label="Country" value={bio?.country} />
                     <Info label="District" value={bio?.district} />
 
                 </div>
