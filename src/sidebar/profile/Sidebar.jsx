@@ -52,7 +52,7 @@ const Sidebar = ({ user, logOut, closeSidebar }) => {
                         className="flex items-center gap-3 px-5 py-4 text-gray-700 hover:bg-gray-100 transition border-b"
                     >
                         <FaIdCard className="text-lg" ></FaIdCard>
-                        <span className="font-medium">Create Bio</span>
+                        <span className="font-medium">Create Biodata</span>
                     </Link>
                 </li>
 
