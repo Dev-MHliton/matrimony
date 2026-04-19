@@ -1,100 +1,161 @@
-import { useState } from "react";
-import FileUpload from "../../../../UserToggle/FileUpload/FileUpload";
-import NotificationToggle from "../../../../UserToggle/NotificationToggle/NotificationToggle";
-import ThemeToggle from "../../../../UserToggle/ThemeToggle/ThemeToggle";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../../../../context/AuthContext";
 
 const UserSetting = () => {
+    const { user } = useContext(AuthContext);
+
     const [profile, setProfile] = useState({
         name: "",
         email: "",
         phone: "",
-        password: "",
+        age: "",
+        gender: "",
+        religion: "",
+        district: "",
+        about: ""
     });
 
-    const [file, setFile] = useState(null);
-    const [notifications, setNotifications] = useState(true);
+    const [loading, setLoading] = useState(false);
 
-    const handleChange = (e) => setProfile({ ...profile, [e.target.name]: e.target.value });
+    // Load user data
+    useEffect(() => {
+        if (!user?.email) return;
 
-    const handleSubmit = (e) => {
+        fetch(`http://localhost:5000/api/user?email=${user.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setProfile({
+                    name: data?.name || "",
+                    email: user.email,
+                    phone: data?.phone || "",
+                    age: data?.age || "",
+                    gender: data?.gender || "",
+                    religion: data?.religion || "",
+                    district: data?.district || "",
+                    about: data?.about || ""
+                });
+            });
+    }, [user]);
+
+    const handleChange = (e) => {
+        setProfile({
+            ...profile,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    //Save profile
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log({
-            profile,
-            file,
-            notifications,
+        setLoading(true);
+
+        await fetch("http://localhost:5000/api/user", {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(profile)
         });
 
-        // Backend API call can be added here
+        setLoading(false);
+        alert("Profile Updated Successfully ✅");
     };
 
     return (
-        <div className="p-6 bg-white dark:bg-gray-900 min-h-screen text-black dark:text-white">
-            <h1 className="text-3xl font-bold mb-6">User Settings</h1>
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center px-4 py-10">
 
-            <div className="mb-6">
-                <ThemeToggle></ThemeToggle>
+            <div className="w-full max-w-2xl bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-6">
+
+                {/* TITLE */}
+                <h1 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-6">
+                    User Settings
+                </h1>
+
+                {/* FORM */}
+                <form onSubmit={handleSubmit} className="space-y-4">
+
+                    {/* GRID INPUTS */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                        <input
+                            name="name"
+                            value={profile.name}
+                            onChange={handleChange}
+                            placeholder="Full Name"
+                            className="w-full p-3 rounded-lg border bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+
+                        <input
+                            name="email"
+                            value={profile.email}
+                            disabled
+                            className="w-full p-3 rounded-lg border bg-gray-200 dark:bg-gray-600 dark:text-white cursor-not-allowed"
+                        />
+
+                        <input
+                            name="phone"
+                            value={profile.phone}
+                            onChange={handleChange}
+                            placeholder="Phone Number"
+                            className="w-full p-3 rounded-lg border bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+
+                        <input
+                            name="age"
+                            value={profile.age}
+                            onChange={handleChange}
+                            placeholder="Age"
+                            className="w-full p-3 rounded-lg border bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+
+                        <input
+                            name="gender"
+                            value={profile.gender}
+                            onChange={handleChange}
+                            placeholder="Gender"
+                            className="w-full p-3 rounded-lg border bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+
+                        <input
+                            name="religion"
+                            value={profile.religion}
+                            onChange={handleChange}
+                            placeholder="Religion"
+                            className="w-full p-3 rounded-lg border bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+
+                        <input
+                            name="district"
+                            value={profile.district}
+                            onChange={handleChange}
+                            placeholder="District"
+                            className="w-full p-3 rounded-lg border bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+
+                    </div>
+
+                    {/* ABOUT */}
+                    <textarea
+                        name="about"
+                        value={profile.about}
+                        onChange={handleChange}
+                        placeholder="Write something about yourself..."
+                        rows="4"
+                        className="w-full p-3 rounded-lg border bg-gray-50 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+
+                    {/* BUTTON */}
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition duration-200"
+                    >
+                        {loading ? "Saving..." : "Save Profile"}
+                    </button>
+
+                </form>
+
             </div>
-
-            <form
-                onSubmit={handleSubmit}
-                className="max-w-lg bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md space-y-4"
-            >
-                <FileUpload file={file} setFile={setFile}></FileUpload>
-
-                <div>
-                    <label className="block mb-1 font-medium">Name</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={profile.name}
-                        onChange={handleChange}
-                        className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white"
-                    />
-                </div>
-
-                <div>
-                    <label className="block mb-1 font-medium">Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={profile.email}
-                        onChange={handleChange}
-                        className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white"
-                    />
-                </div>
-
-                <div>
-                    <label className="block mb-1 font-medium">Phone</label>
-                    <input
-                        type="text"
-                        name="phone"
-                        value={profile.phone}
-                        onChange={handleChange}
-                        className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white"
-                    />
-                </div>
-
-                <div>
-                    <label className="block mb-1 font-medium">Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={profile.password}
-                        onChange={handleChange}
-                        className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white"
-                    />
-                </div>
-
-                <NotificationToggle enabled={notifications} setEnabled={setNotifications}></NotificationToggle>
-
-                <button
-                    type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded"
-                >
-                    Update Profile
-                </button>
-            </form>
-
         </div>
     );
 };
