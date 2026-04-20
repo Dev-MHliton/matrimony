@@ -105,7 +105,10 @@ const SearchBiodata = () => {
         <section className="px-6 pb-4 md:px-12 relative">
 
             {/* Section title */}
-            <SectionTitle heading={"Search Biodata"} />
+            <SectionTitle
+                heading={"Search Biodata"}
+            >
+            </SectionTitle>
 
             {/* Filter Box */}
             <div className="bg-gray-400 text-gray-800 border border-gray-200 shadow-md rounded-lg p-6 mb-6 pr-12 grid grid-cols-1 md:grid-cols-6 gap-4 items-end">
