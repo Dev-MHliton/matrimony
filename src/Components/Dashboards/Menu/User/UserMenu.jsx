@@ -1,4 +1,4 @@
-import { FaUser, FaHeart, FaEnvelope, FaCrown, FaCog, FaHome, FaSearch } from "react-icons/fa";
+import { FaUser, FaHeart, FaEnvelope, FaCrown, FaCog, FaHome, FaSearch, FaLock, FaBell, FaShieldAlt } from "react-icons/fa";
 
 const UserMenu = [
     {
@@ -31,10 +31,33 @@ const UserMenu = [
         path: "/dashboard/user/premium-plan",
         icon: FaCrown,
     },
+
+    //Settings with sub-menu
     {
         name: "Settings",
-        path: "/dashboard/settings",
         icon: FaCog,
+        children: [
+            {
+                name: "Profile Settings",
+                path: "/dashboard/settings/profile",
+                icon: FaUser,
+            },
+            {
+                name: "Privacy Settings",
+                path: "/dashboard/settings/privacy",
+                icon: FaLock,
+            },
+            {
+                name: "Notifications",
+                path: "/dashboard/settings/notifications",
+                icon: FaBell,
+            },
+            {
+                name: "Security",
+                path: "/dashboard/settings/security",
+                icon: FaShieldAlt,
+            },
+        ],
     },
 ];
 

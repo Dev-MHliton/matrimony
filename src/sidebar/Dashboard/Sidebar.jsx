@@ -1,9 +1,11 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-import logo from "../../assets/logo/Interlocked hands forming a heart.png"
+import logo from "../../assets/logo/Interlocked hands forming a heart.png";
 
 const Sidebar = ({ name, menus }) => {
     const navigate = useNavigate();
+    const [openSettings, setOpenSettings] = useState(false);
 
     const goHome = () => {
         navigate("/home", { replace: true });
@@ -12,25 +14,24 @@ const Sidebar = ({ name, menus }) => {
     return (
         <div className="fixed top-0 left-0 w-72 h-screen bg-amber-100 border-r border-gray-200 shadow-sm flex flex-col">
 
-            {/* Top: Website name + logo */}
-            <div className="p-5 border-b border-gray-200 flex items-center gap-1 cursor-pointer" onClick={goHome}>
-                {/* Logo/User Icon */}
+            {/* Top */}
+            <div
+                className="p-5 border-b border-gray-200 flex items-center gap-1 cursor-pointer"
+                onClick={goHome}
+            >
                 <img src={logo} alt="" className="w-10 h-10" />
-
-                {/* Website Name */}
-                <h2 className="text-2xl font-bold text-gray-800">
-                    {name}
-                </h2>
+                <h2 className="text-2xl font-bold text-gray-800">{name}</h2>
             </div>
 
-            {/* Menu Items */}
+            {/* Menu */}
             <ul className="flex-1 p-4 space-y-2">
-                {menus.map((item) => {
+                {menus.map((item, index) => {
                     const Icon = item.icon;
 
+                    // ✅ HOME
                     if (item.path === "/home") {
                         return (
-                            <li key={item.path}>
+                            <li key={index}>
                                 <button
                                     onClick={goHome}
                                     className="flex items-center gap-3 px-4 py-1 rounded-xl transition text-gray-700 hover:bg-gray-100 w-full"
@@ -42,8 +43,49 @@ const Sidebar = ({ name, menus }) => {
                         );
                     }
 
+                    // ✅ SETTINGS (ONLY THIS PART CHANGED)
+                    if (item.children) {
+                        return (
+                            <li key={index}>
+                                <button
+                                    onClick={() => setOpenSettings(!openSettings)}
+                                    className="flex items-center gap-3 px-4 py-1 rounded-xl transition text-gray-700 hover:bg-gray-100 w-full"
+                                >
+                                    <Icon className="text-lg" />
+                                    <span>{item.name}</span>
+                                </button>
+
+                                {/* Sub menu */}
+                                {openSettings && (
+                                    <ul className="ml-8 mt-1 space-y-1">
+                                        {item.children.map((sub, i) => {
+                                            const SubIcon = sub.icon;
+                                            return (
+                                                <li key={i}>
+                                                    <NavLink
+                                                        to={sub.path}
+                                                        className={({ isActive }) =>
+                                                            `flex items-center gap-2 px-3 py-1 rounded-xl transition ${isActive
+                                                                ? "bg-yellow-400 text-black"
+                                                                : "text-gray-700 hover:bg-gray-100"
+                                                            }`
+                                                        }
+                                                    >
+                                                        <SubIcon className="text-sm" />
+                                                        <span>{sub.name}</span>
+                                                    </NavLink>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
+                                )}
+                            </li>
+                        );
+                    }
+
+                    // ✅ NORMAL MENU (unchanged)
                     return (
-                        <li key={item.path}>
+                        <li key={index}>
                             <NavLink
                                 to={item.path}
                                 className={({ isActive }) =>

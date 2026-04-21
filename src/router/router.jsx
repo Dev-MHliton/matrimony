@@ -39,7 +39,18 @@ export const router = createBrowserRouter([
             { path: "profile", Component: Profile },
             { path: "search", Component: SearchBiodata },
             { path: "favorites", Component: Favorites },
-            { path: "settings", Component: UserSetting },
+
+            //Settings Nested Routes
+            {
+                path: "settings",
+                Component: UserSetting, // parent layout
+                children: [
+                    { path: "profile", element: <div>Profile Settings Page</div> },
+                    { path: "privacy", element: <div>Privacy Settings Page</div> },
+                    { path: "notifications", element: <div>Notification Settings Page</div> },
+                    { path: "security", element: <div>Security Settings Page</div> },
+                ]
+            },
         ]
     },
 
