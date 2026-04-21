@@ -28,7 +28,7 @@ const Sidebar = ({ name, menus }) => {
                 {menus.map((item, index) => {
                     const Icon = item.icon;
 
-                    // ✅ HOME
+                    //  HOME
                     if (item.path === "/home") {
                         return (
                             <li key={index}>
@@ -43,7 +43,7 @@ const Sidebar = ({ name, menus }) => {
                         );
                     }
 
-                    // ✅ SETTINGS (ONLY THIS PART CHANGED)
+                    // SETTINGS (ONLY THIS PART CHANGED)
                     if (item.children) {
                         return (
                             <li key={index}>
@@ -83,7 +83,7 @@ const Sidebar = ({ name, menus }) => {
                         );
                     }
 
-                    // ✅ NORMAL MENU (unchanged)
+                    // NORMAL MENU (unchanged)
                     return (
                         <li key={index}>
                             <NavLink
