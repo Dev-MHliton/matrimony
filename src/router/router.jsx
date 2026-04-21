@@ -15,6 +15,7 @@ import BiodataDetails from "../Components/Dashboards/Menus/Users/CreateBiodata/B
 import SecureRoute from "./Secure/SecureRoute";
 import SearchBiodata from "../Components/Dashboards/Menus/Users/SearchBiodata/SearchBiodata";
 import Favorites from "../Components/Dashboards/Menus/Users/Favorites/Favorites";
+import Profile_Settings_Page from "../Components/Dashboards/User_Submenus/Profile Settings Page/Profile_Settings_Page";
 
 export const router = createBrowserRouter([
     {
@@ -45,7 +46,7 @@ export const router = createBrowserRouter([
                 path: "settings",
                 Component: UserSetting, // parent layout
                 children: [
-                    { path: "profile", element: <div>Profile Settings Page</div> },
+                    { path: "profile", Component: Profile_Settings_Page },
                     { path: "privacy", element: <div>Privacy Settings Page</div> },
                     { path: "notifications", element: <div>Notification Settings Page</div> },
                     { path: "security", element: <div>Security Settings Page</div> },
