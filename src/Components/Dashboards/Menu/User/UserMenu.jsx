@@ -32,7 +32,7 @@ const UserMenu = [
         icon: FaCrown,
     },
     {
-        name: "Profile Settings",
+        name: "Settings",
         path: "/dashboard/settings",
         icon: FaCog,
     },
