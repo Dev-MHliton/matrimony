@@ -46,6 +46,7 @@ export const router = createBrowserRouter([
                 path: "settings",
                 Component: UserSetting, // parent layout
                 children: [
+                    { index: true, Component: Profile_Settings_Page }, // default
                     { path: "profile", Component: Profile_Settings_Page },
                     { path: "privacy", element: <div>Privacy Settings Page</div> },
                     { path: "notifications", element: <div>Notification Settings Page</div> },
