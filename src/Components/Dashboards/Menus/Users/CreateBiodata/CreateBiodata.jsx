@@ -346,9 +346,7 @@ const CreateBiodata = () => {
                             <div className="space-y-4">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                     <select
-                                        name="country"
-                                        value={formData.country}
-                                        onChange={handleChange}
+                                        name="country" value={formData.country} onChange={handleChange}
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     >
                                         <option value="">Country</option>
@@ -359,31 +357,16 @@ const CreateBiodata = () => {
                                         ))}
                                     </select>
 
-                                    <input
-                                        type="text"
-                                        name="district"
-                                        value={formData.district}
-                                        onChange={handleChange}
-                                        placeholder="District"
+                                    <input type="text" name="district" value={formData.district} onChange={handleChange} placeholder="District"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
                                 </div>
 
-                                <input
-                                    type="text"
-                                    name="presentAddress"
-                                    value={formData.presentAddress}
-                                    onChange={handleChange}
-                                    placeholder="Present Address"
+                                <input type="text" name="presentAddress" value={formData.presentAddress} onChange={handleChange} placeholder="Present Address"
                                     className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                 />
 
-                                <input
-                                    type="text"
-                                    name="permanentAddress"
-                                    value={formData.permanentAddress}
-                                    onChange={handleChange}
-                                    placeholder="Permanent Address"
+                                <input type="text" name="permanentAddress" value={formData.permanentAddress} onChange={handleChange} placeholder="Permanent Address"
                                     className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                 />
                             </div>
