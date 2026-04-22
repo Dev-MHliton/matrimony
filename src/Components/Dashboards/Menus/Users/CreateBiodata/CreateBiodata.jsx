@@ -150,10 +150,7 @@ const CreateBiodata = () => {
                         {/* Step 1 */}
                         {step === 1 && (
                             <div className="space-y-4">
-                                <select
-                                    name="biodataType"
-                                    value={formData.biodataType}
-                                    onChange={handleChange}
+                                <select name="biodataType" value={formData.biodataType} onChange={handleChange}
                                     className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                 >
                                     <option value="">Gender</option>
@@ -165,10 +162,7 @@ const CreateBiodata = () => {
                                 </select>
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <select
-                                        name="maritalStatus"
-                                        value={formData.maritalStatus}
-                                        onChange={handleChange}
+                                    <select name="maritalStatus" value={formData.maritalStatus} onChange={handleChange}
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     >
                                         <option value="">Marital Status</option>
@@ -179,10 +173,7 @@ const CreateBiodata = () => {
                                         ))}
                                     </select>
 
-                                    <select
-                                        name="religion"
-                                        value={formData.religion}
-                                        onChange={handleChange}
+                                    <select name="religion" value={formData.religion} onChange={handleChange}
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     >
                                         <option value="">Religion</option>
@@ -195,20 +186,12 @@ const CreateBiodata = () => {
                                 </div>
 
                                 <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-                                    <input
-                                        type="date"
-                                        name="dateOfBirth"
-                                        value={formData.dateOfBirth}
-                                        onChange={handleChange}
+                                    <input type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange}
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
 
                                     <div className="flex gap-2 items-center w-full sm:w-auto">
-                                        <input
-                                            type="number"
-                                            name="age"
-                                            value={formData.age}
-                                            readOnly
+                                        <input type="number" name="age" value={formData.age} readOnly
                                             className="w-full sm:w-24 border border-gray-700 p-3 rounded bg-black text-white"
                                         />
                                         <span className="text-white whitespace-nowrap">
@@ -218,51 +201,27 @@ const CreateBiodata = () => {
                                 </div>
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <input
-                                        type="text"
-                                        name="height"
-                                        value={formData.height}
-                                        onChange={handleChange}
-                                        placeholder="Height"
+                                    <input type="text" name="height"
+                                        value={formData.height} onChange={handleChange} placeholder="Height"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
 
-                                    <input
-                                        type="text"
-                                        name="weight"
-                                        value={formData.weight}
-                                        onChange={handleChange}
-                                        placeholder="Weight"
+                                    <input type="text" name="weight" value={formData.weight} onChange={handleChange} placeholder="Weight"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
                                 </div>
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <input
-                                        type="text"
-                                        name="profession"
-                                        value={formData.profession}
-                                        onChange={handleChange}
-                                        placeholder="Profession"
+                                    <input type="text" name="profession" value={formData.profession} onChange={handleChange} placeholder="Profession"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
 
-                                    <input
-                                        type="number"
-                                        name="monthlyIncome"
-                                        value={formData.monthlyIncome}
-                                        onChange={handleChange}
-                                        placeholder="Monthly Income"
+                                    <input type="number" name="monthlyIncome" value={formData.monthlyIncome} onChange={handleChange} placeholder="Monthly Income"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
                                 </div>
 
-                                <input
-                                    type="text"
-                                    name="profileImage"
-                                    value={formData.profileImage}
-                                    onChange={handleChange}
-                                    placeholder="Profile Image URL"
+                                <input type="text" name="profileImage" value={formData.profileImage} onChange={handleChange} placeholder="Profile Image URL"
                                     className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                 />
                             </div>
