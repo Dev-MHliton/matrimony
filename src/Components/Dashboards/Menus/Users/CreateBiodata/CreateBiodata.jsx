@@ -272,49 +272,27 @@ const CreateBiodata = () => {
                         {step === 2 && (
                             <div className="space-y-4">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <input
-                                        type="text"
-                                        name="fatherName"
-                                        value={formData.fatherName}
-                                        onChange={handleChange}
-                                        placeholder="Father Name"
+                                    <input type="text" name="fatherName" value={formData.fatherName} onChange={handleChange} placeholder="Father Name"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
 
-                                    <input
-                                        type="text"
-                                        name="fatherProfession"
-                                        value={formData.fatherProfession}
-                                        onChange={handleChange}
-                                        placeholder="Father Profession"
+                                    <input type="text" name="fatherProfession" value={formData.fatherProfession} onChange={handleChange} placeholder="Father Profession"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
                                 </div>
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <input
-                                        type="text"
-                                        name="motherName"
-                                        value={formData.motherName}
-                                        onChange={handleChange}
-                                        placeholder="Mother Name"
+                                    <input type="text" name="motherName" value={formData.motherName} onChange={handleChange} placeholder="Mother Name"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
 
-                                    <input
-                                        type="text"
-                                        name="motherProfession"
-                                        value={formData.motherProfession}
-                                        onChange={handleChange}
-                                        placeholder="Mother Profession"
+                                    <input type="text" name="motherProfession" value={formData.motherProfession} onChange={handleChange} placeholder="Mother Profession"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
                                 </div>
 
                                 <select
-                                    name="familyStatus"
-                                    value={formData.familyStatus}
-                                    onChange={handleChange}
+                                    name="familyStatus" value={formData.familyStatus} onChange={handleChange}
                                     className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                 >
                                     <option value="">Family Status</option>
@@ -326,9 +304,7 @@ const CreateBiodata = () => {
                                 </select>
 
                                 <select
-                                    name="familyType"
-                                    value={formData.familyType}
-                                    onChange={handleChange}
+                                    name="familyType" value={formData.familyType} onChange={handleChange}
                                     className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                 >
                                     <option value="">Family Type</option>
