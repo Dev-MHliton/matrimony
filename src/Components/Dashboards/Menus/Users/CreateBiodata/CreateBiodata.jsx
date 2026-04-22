@@ -416,51 +416,26 @@ const CreateBiodata = () => {
                         {step === 5 && (
                             <div className="space-y-4">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <input
-                                        type="text"
-                                        name="expectedAge"
-                                        value={formData.expectedAge}
-                                        onChange={handleChange}
-                                        placeholder="Expected Age"
+                                    <input type="text" name="expectedAge" value={formData.expectedAge} onChange={handleChange} placeholder="Expected Age"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
 
-                                    <input
-                                        type="text"
-                                        name="expectedHeight"
-                                        value={formData.expectedHeight}
-                                        onChange={handleChange}
-                                        placeholder="Expected Height"
+                                    <input type="text" name="expectedHeight" value={formData.expectedHeight} onChange={handleChange} placeholder="Expected Height"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
                                 </div>
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <input
-                                        type="text"
-                                        name="expectedEducation"
-                                        value={formData.expectedEducation}
-                                        onChange={handleChange}
-                                        placeholder="Expected Education"
+                                    <input type="text" name="expectedEducation" value={formData.expectedEducation} onChange={handleChange} placeholder="Expected Education"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
 
-                                    <input
-                                        type="text"
-                                        name="expectedProfession"
-                                        value={formData.expectedProfession}
-                                        onChange={handleChange}
-                                        placeholder="Expected Profession"
+                                    <input type="text" name="expectedProfession" value={formData.expectedProfession} onChange={handleChange} placeholder="Expected Profession"
                                         className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                     />
                                 </div>
 
-                                <textarea
-                                    name="partnerPreferences"
-                                    value={formData.partnerPreferences}
-                                    onChange={handleChange}
-                                    rows="3"
-                                    placeholder="Partner Preferences"
+                                <textarea name="partnerPreferences" value={formData.partnerPreferences} onChange={handleChange} rows="3" placeholder="Partner Preferences"
                                     className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                 />
                             </div>
