@@ -21,7 +21,7 @@ const Landing = () => {
                 backgroundPosition: "10% 15%",
                 minHeight: "100vh",
             }}
-            className="relative flex items-center justify-start px-6 md:px-12 lg:px-20"
+            className="relative flex items-center justify-center lg:justify-start px-4 sm:px-6 md:px-10 lg:px-20 py-10"
         >
 
             {/* title means browser heading replace helmet because react 19 not using helmet using "Just title"  */}
@@ -31,7 +31,7 @@ const Landing = () => {
             <div className="absolute inset-0 bg-black/40"></div>
 
             {/* Marquee - Top Right */}
-            <div className="absolute top-8 right-5 z-20 bg-teal-600 text-white px-8 py-2 rounded-xl w-1/3">
+            <div className="absolute top-4 sm:top-6 lg:top-8 left-1/2 -translate-x-1/2 lg:left-auto lg:right-5 lg:translate-x-0 z-20 bg-teal-600 text-white px-4 sm:px-6 py-2 rounded-xl w-[95%] sm:w-[90%] md:w-[80%] lg:w-1/3 overflow-hidden">
                 <Marquee pauseOnHover={true} speed={50}>
                     <span className="mr-12">✔ Verified Profiles</span>
                     <span className="mr-12">✔ Privacy Protected</span>
@@ -66,14 +66,20 @@ const Landing = () => {
                     </div>
 
                     {/* Age Selector */}
-                    <div className="mt-2">
-                        <label className="text-gray-700 mr-2">How old are you?</label>
+                    <div className="mt-2 flex flex-col sm:flex-row items-center justify-center gap-2">
+                        <label className="text-gray-700 text-sm sm:text-base">
+                            How old are you?
+                        </label>
+
                         <select
                             value={age}
                             onChange={(e) => setAge(Number(e.target.value))}
-                            className="select select-bordered select-sm">
+                            className="select select-bordered select-sm w-full sm:w-32"
+                        >
                             {Array.from({ length: 83 }, (_, i) => i + 18).map((age) => (
-                                <option key={age} value={age}>{age}</option>
+                                <option key={age} value={age}>
+                                    {age}
+                                </option>
                             ))}
                         </select>
                     </div>
