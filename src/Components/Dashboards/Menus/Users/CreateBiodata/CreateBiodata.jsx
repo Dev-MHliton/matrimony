@@ -469,32 +469,15 @@ const CreateBiodata = () => {
                         {/* Buttons */}
                         <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6">
                             {step > 1 && (
-                                <button
-                                    type="button"
-                                    onClick={prevStep}
-                                    className="w-full sm:w-auto bg-gray-300 text-black px-4 py-3 rounded"
-                                >
-                                    Previous
-                                </button>
+                                <button type="button" onClick={prevStep} className="w-full sm:w-auto bg-gray-300 text-black px-4 py-3 rounded">Previous</button>
                             )}
 
                             {step < steps.length && (
-                                <button
-                                    type="button"
-                                    onClick={nextStep}
-                                    className="w-full sm:w-auto bg-green-600 text-white px-4 py-3 rounded"
-                                >
-                                    Next
-                                </button>
+                                <button type="button" onClick={nextStep} className="w-full sm:w-auto bg-green-600 text-white px-4 py-3 rounded">Next</button>
                             )}
 
                             {step === steps.length && (
-                                <button
-                                    type="submit"
-                                    className="w-full sm:w-auto bg-green-600 text-white px-6 py-3 rounded"
-                                >
-                                    Submit
-                                </button>
+                                <button type="submit" className="w-full sm:w-auto bg-green-600 text-white px-6 py-3 rounded">Submit</button>
                             )}
                         </div>
                     </form>
