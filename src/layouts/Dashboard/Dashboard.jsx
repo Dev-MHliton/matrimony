@@ -33,7 +33,7 @@ const Dashboard = ({ role }) => {
                     />
                 )}
 
-                {/* Sidebar */}
+                {/* Sidebar.......................................................... */}
                 <div
                     className={`
                         fixed top-0 left-0 z-50 h-screen
@@ -50,7 +50,7 @@ const Dashboard = ({ role }) => {
                     />
                 </div>
 
-                {/* Navbar */}
+                {/* Navbar................................................................ */}
                 <div className="fixed top-0 left-0 lg:left-72 w-full lg:w-[calc(100%-18rem)] z-30">
                     <div className="flex items-center bg-amber-100 text-black">
                         <button
@@ -66,7 +66,7 @@ const Dashboard = ({ role }) => {
                     </div>
                 </div>
 
-                {/* Outlet */}
+                {/* Outlet............................................................ */}
                 <div className="lg:ml-72 min-h-screen pt-28 px-3 sm:px-5">
                     <Outlet />
                 </div>
