@@ -70,7 +70,7 @@ const Navbar = () => {
                         {/* Mobile Menu */}
                         <div className="lg:hidden">
                             <div className="dropdown">
-                                <div tabIndex={0} className="btn btn-ghost p-2">
+                                <div tabIndex={0} className="btn btn-ghost text-emerald-700 p-2">
                                     ☰
                                 </div>
                                 <ul className="dropdown-content bg-white rounded-box mt-3 w-56 p-2 shadow">
