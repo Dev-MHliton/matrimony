@@ -112,6 +112,7 @@ const Sidebar = ({ name, menus }) => {
                     );
                 })}
             </ul>
+
         </div>
     );
 };
