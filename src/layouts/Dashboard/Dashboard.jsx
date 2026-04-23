@@ -52,7 +52,7 @@ const Dashboard = ({ role }) => {
 
                 {/* Navbar */}
                 <div className="fixed top-0 left-0 lg:left-72 w-full lg:w-[calc(100%-18rem)] z-30">
-                    <div className="flex items-center bg-amber-100">
+                    <div className="flex items-center bg-amber-100 hover:bg-green-950">
                         <button
                             onClick={() => setOpenSidebar(!openSidebar)}
                             className="lg:hidden px-4 text-2xl"
