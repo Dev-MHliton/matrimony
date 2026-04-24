@@ -228,19 +228,19 @@ const SearchBiodata = () => {
                         <div className="flex-1 p-4 flex flex-col justify-between">
 
                             <div>
-                                <h3 className="font-bold text-lg text-gray-800 break-words">
+                                <h3 className="font-bold text-lg text-gray-800 wrap-break-words">
                                     {item.name || "No Name"}
                                 </h3>
 
-                                <p className="text-sm text-gray-600 break-words">
+                                <p className="text-sm text-gray-600 wrap-break-words">
                                     💼 {item.profession || "N/A"}
                                 </p>
 
-                                <p className="text-sm text-gray-600 break-words">
+                                <p className="text-sm text-gray-600 wrap-break-words">
                                     📍 {item.district || "Unknown"}, {item.country || ""}
                                 </p>
 
-                                <p className="text-xs text-gray-500 mt-2 break-words">
+                                <p className="text-xs text-gray-500 mt-2 wrap-break-words">
                                     {item.aboutMe ? item.aboutMe.slice(0, 60) + "..." : "No description"}
                                 </p>
                             </div>
