@@ -44,7 +44,7 @@ const Favorites = () => {
     };
 
     return (
-        <section className="px-6 md:px-12 py-6">
+        <section className="px-4 sm:px-6 md:px-12 py-6">
 
             {/* Title */}
             <SectionTitle heading={"My Favorites"} />
@@ -62,16 +62,16 @@ const Favorites = () => {
             )}
 
             {/* Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-6">
 
                 {favorites.map((fav) => (
                     <div
                         key={fav._id}
-                        className="bg-white rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-between p-4"
+                        className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
                     >
 
                         {/* Left Side: Image + Info */}
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-3 sm:gap-4 min-w-0">
 
                             {/* Circle Image */}
                             <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
@@ -79,7 +79,7 @@ const Favorites = () => {
                                     <img
                                         src={fav.biodata.profileImage}
                                         alt={fav.biodata?.name}
-                                        className="w-24 h-24 object-cover"
+                                        className="w-full h-full object-cover"
                                     />
                                 ) : (
                                     <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">
@@ -89,16 +89,16 @@ const Favorites = () => {
                             </div>
 
                             {/* Info */}
-                            <div>
-                                <h3 className="font-bold text-gray-800">
+                            <div className="min-w-0">
+                                <h3 className="font-bold text-gray-800 truncate">
                                     {fav.biodata?.name || "No Name"}
                                 </h3>
 
-                                <p className="text-sm text-gray-600">
+                                <p className="text-sm text-gray-600 truncate">
                                     💼 {fav.biodata?.profession || "N/A"}
                                 </p>
 
-                                <p className="text-xs text-gray-500">
+                                <p className="text-xs text-gray-500 truncate">
                                     📍 {fav.biodata?.district || "Unknown"}
                                 </p>
                             </div>
@@ -106,18 +106,18 @@ const Favorites = () => {
                         </div>
 
                         {/* Right Side: Buttons */}
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 w-full sm:w-auto">
 
                             <button
                                 onClick={() => navigate(`/biodata/${fav.biodataId}`)}
-                                className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm"
+                                className="flex-1 sm:flex-none bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded text-sm"
                             >
                                 View
                             </button>
 
                             <button
                                 onClick={() => handleRemove(fav.biodataId)}
-                                className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm"
+                                className="flex-1 sm:flex-none bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded text-sm"
                             >
                                 Remove
                             </button>
