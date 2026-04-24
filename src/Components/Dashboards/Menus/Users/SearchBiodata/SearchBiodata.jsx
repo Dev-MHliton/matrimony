@@ -102,7 +102,7 @@ const SearchBiodata = () => {
         }
     };
     return (
-        <section className="px-6 pb-4 md:px-12 relative">
+        <section className="px-4 sm:px-6 pb-4 md:px-12 relative">
 
             {/* Section title */}
             <SectionTitle
@@ -114,7 +114,7 @@ const SearchBiodata = () => {
             <title>Dashboard - Search Biodata</title>
 
             {/* Filter Box */}
-            <div className="bg-gray-400 text-gray-800 border border-gray-200 shadow-md rounded-lg p-6 mb-6 pr-14 grid grid-cols-1 md:grid-cols-6 gap-4 items-end">
+            <div className="bg-gray-400 text-gray-800 border border-gray-200 shadow-md rounded-lg p-4 sm:p-6 mb-6 md:pr-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4 items-end">
 
                 {/* Age */}
                 <input
@@ -122,7 +122,7 @@ const SearchBiodata = () => {
                     placeholder="Age"
                     value={filters.age}
                     onChange={(e) => setFilters({ ...filters, age: e.target.value })}
-                    className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
 
                 {/* Profession */}
@@ -131,7 +131,7 @@ const SearchBiodata = () => {
                     placeholder="Profession"
                     value={filters.profession}
                     onChange={(e) => setFilters({ ...filters, profession: e.target.value })}
-                    className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
 
                 {/* District */}
@@ -140,14 +140,14 @@ const SearchBiodata = () => {
                     placeholder="District"
                     value={filters.district}
                     onChange={(e) => setFilters({ ...filters, district: e.target.value })}
-                    className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
 
                 {/* Gender */}
                 <select
                     value={filters.gender}
                     onChange={(e) => setFilters({ ...filters, gender: e.target.value })}
-                    className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
                     <option value="">Gender</option>
                     <option value="Male">Male</option>
@@ -159,7 +159,7 @@ const SearchBiodata = () => {
                 <select
                     value={filters.religion}
                     onChange={(e) => setFilters({ ...filters, religion: e.target.value })}
-                    className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
                     <option value="">Religion</option>
                     <option value="Muslim">Muslim</option>
@@ -170,19 +170,22 @@ const SearchBiodata = () => {
                 </select>
 
                 {/* Buttons */}
-                <div className="flex gap-2 col-span-1 md:col-span-1">
+                <div className="flex flex-col sm:flex-row gap-2 col-span-1 md:col-span-1">
+
                     <button
                         onClick={handleSearch}
-                        className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition"
+                        className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition w-full"
                     >
                         Search
                     </button>
+
                     <button
                         onClick={handleReset}
-                        className="bg-gray-700 hover:bg-gray-500 text-white px-4 py-2 rounded-lg transition"
+                        className="bg-gray-700 hover:bg-gray-500 text-white px-4 py-2 rounded-lg transition w-full"
                     >
                         Reset
                     </button>
+
                 </div>
             </div>
 
@@ -192,7 +195,7 @@ const SearchBiodata = () => {
             {/* Card Start Now here---------------------------------------------------------------------------------------! */}
 
             {/* Result Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-6">
 
                 {!loading && biodatas.length === 0 && (
                     <div className="col-span-full flex flex-col items-center justify-center">
@@ -203,11 +206,11 @@ const SearchBiodata = () => {
                 {biodatas.map((item) => (
                     <div
                         key={item._id}
-                        className="bg-white rounded-xl shadow-md hover:shadow-lg transition flex overflow-hidden"
+                        className="bg-white rounded-xl shadow-md hover:shadow-lg transition flex flex-col sm:flex-row overflow-hidden"
                     >
 
                         {/* Image */}
-                        <div className="w-1/3">
+                        <div className="w-full sm:w-1/3 h-56 sm:h-auto">
                             {item.profileImage ? (
                                 <img
                                     src={item.profileImage}
@@ -225,36 +228,36 @@ const SearchBiodata = () => {
                         <div className="flex-1 p-4 flex flex-col justify-between">
 
                             <div>
-                                <h3 className="font-bold text-lg text-gray-800">
+                                <h3 className="font-bold text-lg text-gray-800 break-words">
                                     {item.name || "No Name"}
                                 </h3>
 
-                                <p className="text-sm text-gray-600">
+                                <p className="text-sm text-gray-600 break-words">
                                     💼 {item.profession || "N/A"}
                                 </p>
 
-                                <p className="text-sm text-gray-600">
+                                <p className="text-sm text-gray-600 break-words">
                                     📍 {item.district || "Unknown"}, {item.country || ""}
                                 </p>
 
-                                <p className="text-xs text-gray-500 mt-2">
+                                <p className="text-xs text-gray-500 mt-2 break-words">
                                     {item.aboutMe ? item.aboutMe.slice(0, 60) + "..." : "No description"}
                                 </p>
                             </div>
 
                             {/* Buttons */}
-                            <div className="flex gap-2 mt-3">
+                            <div className="flex flex-col sm:flex-row gap-2 mt-3">
 
                                 <button
                                     onClick={() => navigate(`/biodata/${item._id}`)}
-                                    className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm"
+                                    className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded text-sm w-full"
                                 >
                                     View
                                 </button>
 
                                 <button
                                     onClick={() => handleFavorite(item._id)}
-                                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm"
+                                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded text-sm w-full"
                                 >
                                     {favorites.includes(item._id) ? "❤️ Remove" : "🤍 Favorite"}
                                 </button>
