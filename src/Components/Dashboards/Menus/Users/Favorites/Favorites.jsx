@@ -74,7 +74,7 @@ const Favorites = () => {
                         <div className="flex items-center gap-3 sm:gap-4 min-w-0">
 
                             {/* Circle Image */}
-                            <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                            <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-200 shrink-0">
                                 {fav.biodata?.profileImage ? (
                                     <img
                                         src={fav.biodata.profileImage}
