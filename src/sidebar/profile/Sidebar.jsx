@@ -34,7 +34,7 @@ const Sidebar = ({ user, logOut, closeSidebar }) => {
 
             {/* Menu Items---------------------------------------------------------- */}
             <ul className="flex flex-col">
-                <li>
+                {/* <li>
                     <Link
                         to="/profile"
                         onClick={closeSidebar}
@@ -42,6 +42,18 @@ const Sidebar = ({ user, logOut, closeSidebar }) => {
                     >
                         <FaUser className="text-lg" ></FaUser>
                         <span className="font-medium">My Profile</span>
+                    </Link>
+                </li> */}
+
+
+                <li>
+                    <Link
+                        to="/dashboard"
+                        onClick={closeSidebar}
+                        className="flex items-center gap-3 px-5 py-4 text-gray-700 hover:bg-gray-100 transition border-b"
+                    >
+                        <FaTachometerAlt className="text-lg" ></FaTachometerAlt>
+                        <span className="font-medium">Dashboard</span>
                     </Link>
                 </li>
 
@@ -52,18 +64,7 @@ const Sidebar = ({ user, logOut, closeSidebar }) => {
                         className="flex items-center gap-3 px-5 py-4 text-gray-700 hover:bg-gray-100 transition border-b"
                     >
                         <FaIdCard className="text-lg" ></FaIdCard>
-                        <span className="font-medium">Create Biodata</span>
-                    </Link>
-                </li>
-
-                <li>
-                    <Link
-                        to="/dashboard"
-                        onClick={closeSidebar}
-                        className="flex items-center gap-3 px-5 py-4 text-gray-700 hover:bg-gray-100 transition border-b"
-                    >
-                        <FaTachometerAlt className="text-lg" ></FaTachometerAlt>
-                        <span className="font-medium">Dashboard</span>
+                        <span className="font-medium">Biodata</span>
                     </Link>
                 </li>
 

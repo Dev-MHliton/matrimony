@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
             //Settings Nested Routes
             {
                 path: "settings",
-                Component: UserSetting, // parent layout
+                Component: UserSetting,
                 children: [
                     { index: true, Component: Profile_Settings_Page }, // default
                     { path: "profile", Component: Profile_Settings_Page },
