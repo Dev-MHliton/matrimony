@@ -109,7 +109,7 @@ const Profile = () => {
                     </div>
 
                     {/* USER INFO */}
-                    <div className="text-center md:text-left flex-1 break-words">
+                    <div className="text-center md:text-left flex-1 wrap-break-words">
 
                         <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">
                             {bio?.name || "No Name"}
@@ -147,7 +147,7 @@ const Profile = () => {
                         About Me
                     </h3>
 
-                    <p className="text-gray-800 dark:text-white text-sm sm:text-base break-words">
+                    <p className="text-gray-800 dark:text-white text-sm sm:text-base wrap-break-words">
                         {bio?.about || "No description available"}
                     </p>
 
@@ -167,7 +167,7 @@ const Info = ({ label, value }) => {
                 {label}
             </p>
 
-            <p className="font-semibold text-gray-800 dark:text-white break-words text-sm sm:text-base">
+            <p className="font-semibold text-gray-800 dark:text-white wrap-break-words text-sm sm:text-base">
                 {value || "N/A"}
             </p>
 
