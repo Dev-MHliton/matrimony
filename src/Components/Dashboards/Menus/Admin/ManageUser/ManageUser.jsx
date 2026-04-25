@@ -20,7 +20,6 @@ const ManageUser = () => {
             .catch(() => setLoading(false));
     }, []);
 
-    // 🗑 DELETE
     const handleDelete = async (id) => {
 
         const confirm = window.confirm("Delete this user?");
@@ -37,24 +36,14 @@ const ManageUser = () => {
         }
     };
 
-    // 👁 VIEW
-    const handleView = (user) => {
-        setSelectedUser(user);
-    };
+    const handleView = (user) => setSelectedUser(user);
+    const handleEdit = (user) => setEditUser(user);
 
-    // ✏️ EDIT OPEN
-    const handleEdit = (user) => {
-        setEditUser(user);
-    };
-
-    // ✏️ EDIT SAVE
     const handleUpdate = async () => {
 
         const res = await fetch(`http://localhost:5000/api/biodata/${editUser._id}`, {
             method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(editUser)
         });
 
@@ -71,84 +60,93 @@ const ManageUser = () => {
     if (loading) return <Loading />;
 
     return (
-        <section className="p-4">
+        <section className="p-2 md:p-4">
 
-            <div className="bg-black p-4 md:p-6 rounded-xl overflow-x-auto">
+            <div className="bg-black p-3 md:p-6 rounded-xl">
 
-                <table className="table w-full text-white">
+                {/* TABLE WRAPPER */}
+                <div className="overflow-x-auto">
 
-                    <thead className="bg-gray-800">
-                        <tr>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Gender</th>
-                            <th>Age</th>
-                            <th>Religion</th>
-                            <th>Profession</th>
-                            <th>Country</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
+                    <table className="min-w-[900px] w-full text-white text-sm md:text-base">
 
-                    <tbody>
-
-                        {users.map(user => (
-                            <tr key={user._id} className="border-b border-gray-700">
-
-                                <td>
-                                    <img src={user.profileImage}
-                                        className="w-12 h-12 rounded-full"
-                                    />
-                                </td>
-
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td>{user.biodataType}</td>
-                                <td>{user.age}</td>
-                                <td>{user.religion}</td>
-                                <td>{user.profession}</td>
-                                <td>{user.country}</td>
-
-                                <td className="flex gap-2">
-
-                                    <button
-                                        onClick={() => handleView(user)}
-                                        className="bg-blue-600 p-2 rounded"
-                                    >
-                                        <FaEye />
-                                    </button>
-
-                                    <button
-                                        onClick={() => handleEdit(user)}
-                                        className="bg-green-600 p-2 rounded"
-                                    >
-                                        <FaEdit />
-                                    </button>
-
-                                    <button
-                                        onClick={() => handleDelete(user._id)}
-                                        className="bg-red-600 p-2 rounded"
-                                    >
-                                        <FaTrash />
-                                    </button>
-
-                                </td>
-
+                        <thead className="bg-gray-800">
+                            <tr>
+                                <th className="p-2">Image</th>
+                                <th className="p-2">Name</th>
+                                <th className="p-2">Email</th>
+                                <th className="p-2">Gender</th>
+                                <th className="p-2">Age</th>
+                                <th className="p-2">Religion</th>
+                                <th className="p-2">Profession</th>
+                                <th className="p-2">Country</th>
+                                <th className="p-2">Action</th>
                             </tr>
-                        ))}
+                        </thead>
 
-                    </tbody>
+                        <tbody>
 
-                </table>
+                            {users.map(user => (
+                                <tr key={user._id} className="border-b border-gray-700">
+
+                                    <td className="p-2">
+                                        <img
+                                            src={user.profileImage}
+                                            className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
+                                        />
+                                    </td>
+
+                                    <td className="p-2">{user.name}</td>
+                                    <td className="p-2 break-all">{user.email}</td>
+                                    <td className="p-2">{user.biodataType}</td>
+                                    <td className="p-2">{user.age}</td>
+                                    <td className="p-2">{user.religion}</td>
+                                    <td className="p-2">{user.profession}</td>
+                                    <td className="p-2">{user.country}</td>
+
+                                    {/* ACTIONS */}
+                                    <td className="p-2">
+                                        <div className="flex flex-col md:flex-row gap-2">
+
+                                            <button
+                                                onClick={() => handleView(user)}
+                                                className="bg-blue-600 p-2 rounded w-full md:w-auto"
+                                            >
+                                                <FaEye />
+                                            </button>
+
+                                            <button
+                                                onClick={() => handleEdit(user)}
+                                                className="bg-green-600 p-2 rounded w-full md:w-auto"
+                                            >
+                                                <FaEdit />
+                                            </button>
+
+                                            <button
+                                                onClick={() => handleDelete(user._id)}
+                                                className="bg-red-600 p-2 rounded w-full md:w-auto"
+                                            >
+                                                <FaTrash />
+                                            </button>
+
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            ))}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
 
             </div>
 
-            {/* ================= VIEW MODAL ================= */}
+            {/* VIEW MODAL */}
             {selectedUser && (
-                <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center">
+                <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4">
 
-                    <div className="bg-white text-black p-6 rounded-xl w-96 relative">
+                    <div className="bg-white text-black p-4 md:p-6 rounded-xl w-full max-w-sm relative">
 
                         <button
                             onClick={() => setSelectedUser(null)}
@@ -157,8 +155,8 @@ const ManageUser = () => {
                             <FaTimes />
                         </button>
 
-                        <h2 className="text-xl font-bold mb-2">{selectedUser.name}</h2>
-                        <p>Email: {selectedUser.email}</p>
+                        <h2 className="text-lg md:text-xl font-bold">{selectedUser.name}</h2>
+                        <p className="text-sm md:text-base">Email: {selectedUser.email}</p>
                         <p>Age: {selectedUser.age}</p>
                         <p>Country: {selectedUser.country}</p>
 
@@ -167,13 +165,13 @@ const ManageUser = () => {
                 </div>
             )}
 
-            {/* ================= EDIT MODAL ================= */}
+            {/* EDIT MODAL */}
             {editUser && (
-                <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center">
+                <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4">
 
-                    <div className="bg-white text-black p-6 rounded-xl w-96">
+                    <div className="bg-white text-black p-4 md:p-6 rounded-xl w-full max-w-sm">
 
-                        <h2 className="text-xl font-bold mb-3">Edit User</h2>
+                        <h2 className="text-lg font-bold mb-3">Edit User</h2>
 
                         <input
                             className="border p-2 w-full mb-2"
@@ -199,18 +197,18 @@ const ManageUser = () => {
                             }
                         />
 
-                        <div className="flex justify-between">
+                        <div className="flex flex-col md:flex-row gap-2">
 
                             <button
                                 onClick={() => setEditUser(null)}
-                                className="bg-gray-500 text-white px-3 py-1 rounded"
+                                className="bg-gray-500 text-white px-3 py-2 rounded w-full"
                             >
                                 Cancel
                             </button>
 
                             <button
                                 onClick={handleUpdate}
-                                className="bg-green-600 text-white px-3 py-1 rounded"
+                                className="bg-green-600 text-white px-3 py-2 rounded w-full"
                             >
                                 Save
                             </button>
