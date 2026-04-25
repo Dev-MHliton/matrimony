@@ -20,7 +20,7 @@ const AdminPanel = () => {
 
     return (
         <section className="p-4">
-            <title>Dashboard/Manage Users - Matrimony</title>
+            <title>Dashboard/Admin - Matrimony</title>
 
             <div className="bg-black rounded-xl p-4 md:p-6">
 
