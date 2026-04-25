@@ -17,6 +17,7 @@ import SearchBiodata from "../Components/Dashboards/Menus/Users/SearchBiodata/Se
 import Favorites from "../Components/Dashboards/Menus/Users/Favorites/Favorites";
 import Profile_Settings_Page from "../Components/Dashboards/User_Submenus/Profile Settings Page/Profile_Settings_Page";
 import ManageUser from "../Components/Dashboards/Menus/Admin/ManageUser/ManageUser";
+import AdminPanel from "../Components/Dashboards/Menus/Admin/AdminPanel/AdminPanel";
 
 export const router = createBrowserRouter([
     {
@@ -55,6 +56,7 @@ export const router = createBrowserRouter([
                 ]
             },
             // Admin Routes
+            { path: "adminPanel", Component: AdminPanel },
             { path: "admin/manage-users", Component: ManageUser },
 
         ]

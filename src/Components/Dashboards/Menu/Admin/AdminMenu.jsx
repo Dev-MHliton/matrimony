@@ -3,7 +3,7 @@ import { FaCog, FaUsers, FaCrown, FaHome, FaHourglassHalf } from "react-icons/fa
 const AdminMenu = [
     {
         name: "Dashboard",
-        path: "/home",
+        path: "/dashboard/adminPanel",
         icon: FaHome,
     },
     {
