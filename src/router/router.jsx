@@ -16,6 +16,7 @@ import SecureRoute from "./Secure/SecureRoute";
 import SearchBiodata from "../Components/Dashboards/Menus/Users/SearchBiodata/SearchBiodata";
 import Favorites from "../Components/Dashboards/Menus/Users/Favorites/Favorites";
 import Profile_Settings_Page from "../Components/Dashboards/User_Submenus/Profile Settings Page/Profile_Settings_Page";
+import ManageUser from "../Components/Dashboards/Menus/Admin/ManageUser/ManageUser";
 
 export const router = createBrowserRouter([
     {
@@ -53,6 +54,9 @@ export const router = createBrowserRouter([
                     { path: "security", element: <div>Security Settings Page</div> },
                 ]
             },
+            // Admin Routes
+            { path: "admin/manage-users", Component: ManageUser },
+
         ]
     },
 
