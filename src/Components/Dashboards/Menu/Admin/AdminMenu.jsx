@@ -17,7 +17,7 @@ const AdminMenu = [
         icon: FaHourglassHalf,
     },
     {
-        name: "SubscriptionS",
+        name: "Subscriptions",
         path: "/dashboard/subscription",
         icon: FaCrown,
     },
