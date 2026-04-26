@@ -1,24 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import {
-    FaUsers,
-    FaMale,
-    FaFemale,
-    FaCrown
-} from "react-icons/fa";
+import { FaUsers, FaMale, FaFemale, FaCrown } from "react-icons/fa";
 
-import {
-    PieChart,
-    Pie,
-    Cell,
-    Tooltip,
-    ResponsiveContainer,
-    BarChart,
-    Bar,
-    XAxis,
-    YAxis,
-    CartesianGrid
-} from "recharts";
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 
 const AdminPanel = () => {
 

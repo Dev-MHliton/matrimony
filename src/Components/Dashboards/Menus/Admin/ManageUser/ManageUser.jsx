@@ -60,70 +60,94 @@ const ManageUser = () => {
     if (loading) return <Loading />;
 
     return (
-        <section className="p-2 md:p-4">
+        <section className="p-2 md:p-4 w-full overflow-hidden">
 
-            <div className="bg-black p-3 md:p-6 rounded-xl">
+            <div className="bg-black p-2 sm:p-3 md:p-6 rounded-xl overflow-hidden">
 
                 {/* TABLE WRAPPER */}
-                <div className="overflow-x-auto">
+                <div className="w-full overflow-x-auto scrollbar-thin">
 
-                    <table className="min-w-225 w-full text-white text-sm md:text-base">
+                    <table className="min-w-[900px] w-full text-white text-xs sm:text-sm md:text-base">
 
-                        <thead className="bg-gray-800">
+                        <thead className="bg-gray-800 sticky top-0 z-10">
                             <tr>
-                                <th className="p-2">Image</th>
-                                <th className="p-2">Name</th>
-                                <th className="p-2">Email</th>
-                                <th className="p-2">Gender</th>
-                                <th className="p-2">Age</th>
-                                <th className="p-2">Religion</th>
-                                <th className="p-2">Profession</th>
-                                <th className="p-2">Country</th>
-                                <th className="p-2">Action</th>
+                                <th className="p-2 whitespace-nowrap">Image</th>
+                                <th className="p-2 whitespace-nowrap">Name</th>
+                                <th className="p-2 whitespace-nowrap">Email</th>
+                                <th className="p-2 whitespace-nowrap">Gender</th>
+                                <th className="p-2 whitespace-nowrap">Age</th>
+                                <th className="p-2 whitespace-nowrap">Religion</th>
+                                <th className="p-2 whitespace-nowrap">Profession</th>
+                                <th className="p-2 whitespace-nowrap">Country</th>
+                                <th className="p-2 whitespace-nowrap">Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
 
                             {users.map(user => (
-                                <tr key={user._id} className="border-b border-gray-700">
+                                <tr
+                                    key={user._id}
+                                    className="border-b border-gray-700 hover:bg-gray-900 transition"
+                                >
 
                                     <td className="p-2">
                                         <img
                                             src={user.profileImage}
-                                            className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
+                                            alt={user.name}
+                                            className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover min-w-[40px]"
                                         />
                                     </td>
 
-                                    <td className="p-2">{user.name}</td>
-                                    <td className="p-2 break-all">{user.email}</td>
-                                    <td className="p-2">{user.biodataType}</td>
-                                    <td className="p-2">{user.age}</td>
-                                    <td className="p-2">{user.religion}</td>
-                                    <td className="p-2">{user.profession}</td>
-                                    <td className="p-2">{user.country}</td>
+                                    <td className="p-2 whitespace-nowrap">
+                                        {user.name}
+                                    </td>
+
+                                    <td className="p-2 break-all max-w-[180px]">
+                                        {user.email}
+                                    </td>
+
+                                    <td className="p-2 whitespace-nowrap">
+                                        {user.biodataType}
+                                    </td>
+
+                                    <td className="p-2 whitespace-nowrap">
+                                        {user.age}
+                                    </td>
+
+                                    <td className="p-2 whitespace-nowrap">
+                                        {user.religion}
+                                    </td>
+
+                                    <td className="p-2 whitespace-nowrap">
+                                        {user.profession}
+                                    </td>
+
+                                    <td className="p-2 whitespace-nowrap">
+                                        {user.country}
+                                    </td>
 
                                     {/* ACTIONS */}
                                     <td className="p-2">
-                                        <div className="flex flex-col md:flex-row gap-2">
+                                        <div className="flex flex-row gap-2 min-w-[120px]">
 
                                             <button
                                                 onClick={() => handleView(user)}
-                                                className="bg-blue-600 p-2 rounded w-full md:w-auto"
+                                                className="bg-blue-600 hover:bg-blue-700 p-2 rounded flex items-center justify-center"
                                             >
                                                 <FaEye />
                                             </button>
 
                                             <button
                                                 onClick={() => handleEdit(user)}
-                                                className="bg-green-600 p-2 rounded w-full md:w-auto"
+                                                className="bg-green-600 hover:bg-green-700 p-2 rounded flex items-center justify-center"
                                             >
                                                 <FaEdit />
                                             </button>
 
                                             <button
                                                 onClick={() => handleDelete(user._id)}
-                                                className="bg-red-600 p-2 rounded w-full md:w-auto"
+                                                className="bg-red-600 hover:bg-red-700 p-2 rounded flex items-center justify-center"
                                             >
                                                 <FaTrash />
                                             </button>
@@ -144,21 +168,41 @@ const ManageUser = () => {
 
             {/* VIEW MODAL */}
             {selectedUser && (
-                <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4">
+                <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-3 z-50">
 
-                    <div className="bg-white text-black p-4 md:p-6 rounded-xl w-full max-w-sm relative">
+                    <div className="bg-white text-black p-4 md:p-6 rounded-xl w-full max-w-sm relative max-h-[90vh] overflow-y-auto">
 
                         <button
                             onClick={() => setSelectedUser(null)}
-                            className="absolute top-2 right-2"
+                            className="absolute top-3 right-3 text-lg"
                         >
                             <FaTimes />
                         </button>
 
-                        <h2 className="text-lg md:text-xl font-bold">{selectedUser.name}</h2>
-                        <p className="text-sm md:text-base">Email: {selectedUser.email}</p>
-                        <p>Age: {selectedUser.age}</p>
-                        <p>Country: {selectedUser.country}</p>
+                        <div className="flex flex-col items-center text-center">
+
+                            <img
+                                src={selectedUser.profileImage}
+                                alt={selectedUser.name}
+                                className="w-20 h-20 rounded-full object-cover mb-3"
+                            />
+
+                            <h2 className="text-lg md:text-xl font-bold wrap-break-words">
+                                {selectedUser.name}
+                            </h2>
+
+                            <p className="text-sm break-all">
+                                {selectedUser.email}
+                            </p>
+
+                        </div>
+
+                        <div className="mt-4 space-y-2 text-sm md:text-base">
+                            <p><strong>Age:</strong> {selectedUser.age}</p>
+                            <p><strong>Country:</strong> {selectedUser.country}</p>
+                            <p><strong>Religion:</strong> {selectedUser.religion}</p>
+                            <p><strong>Profession:</strong> {selectedUser.profession}</p>
+                        </div>
 
                     </div>
 
@@ -167,37 +211,48 @@ const ManageUser = () => {
 
             {/* EDIT MODAL */}
             {editUser && (
-                <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4">
+                <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-3 z-50">
 
-                    <div className="bg-white text-black p-4 md:p-6 rounded-xl w-full max-w-sm">
+                    <div className="bg-white text-black p-4 md:p-6 rounded-xl w-full max-w-sm max-h-[90vh] overflow-y-auto">
 
-                        <h2 className="text-lg font-bold mb-3">Edit User</h2>
+                        <h2 className="text-lg font-bold mb-4">
+                            Edit User
+                        </h2>
 
                         <input
-                            className="border p-2 w-full mb-2"
+                            className="border p-2 w-full mb-3 rounded outline-none"
                             value={editUser.name}
                             onChange={(e) =>
-                                setEditUser({ ...editUser, name: e.target.value })
+                                setEditUser({
+                                    ...editUser,
+                                    name: e.target.value
+                                })
                             }
                         />
 
                         <input
-                            className="border p-2 w-full mb-2"
+                            className="border p-2 w-full mb-3 rounded outline-none"
                             value={editUser.age}
                             onChange={(e) =>
-                                setEditUser({ ...editUser, age: e.target.value })
+                                setEditUser({
+                                    ...editUser,
+                                    age: e.target.value
+                                })
                             }
                         />
 
                         <input
-                            className="border p-2 w-full mb-4"
+                            className="border p-2 w-full mb-4 rounded outline-none"
                             value={editUser.country}
                             onChange={(e) =>
-                                setEditUser({ ...editUser, country: e.target.value })
+                                setEditUser({
+                                    ...editUser,
+                                    country: e.target.value
+                                })
                             }
                         />
 
-                        <div className="flex flex-col md:flex-row gap-2">
+                        <div className="flex flex-col sm:flex-row gap-2">
 
                             <button
                                 onClick={() => setEditUser(null)}
