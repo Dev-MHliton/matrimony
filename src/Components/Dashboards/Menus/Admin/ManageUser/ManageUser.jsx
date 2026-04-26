@@ -67,7 +67,7 @@ const ManageUser = () => {
                 {/* TABLE WRAPPER */}
                 <div className="overflow-x-auto">
 
-                    <table className="min-w-[900px] w-full text-white text-sm md:text-base">
+                    <table className="min-w-225 w-full text-white text-sm md:text-base">
 
                         <thead className="bg-gray-800">
                             <tr>

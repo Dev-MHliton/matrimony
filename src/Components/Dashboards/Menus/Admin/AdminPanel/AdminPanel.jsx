@@ -47,7 +47,7 @@ const AdminPanel = () => {
     const COLORS = ["#3b82f6", "#ec4899"];
 
     return (
-        <div className="bg-black text-white min-h-screen p-3 sm:p-4 md:p-8">
+        <div className="bg-black rounded-xl text-white min-h-screen p-3 sm:p-4 md:p-8">
 
             {/* HEADER */}
             <div className="mb-6">
