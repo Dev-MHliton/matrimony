@@ -9,7 +9,10 @@ const Featured_Premium = () => {
     useEffect(() => {
         fetch("http://localhost:5000/api/biodata/featured")
             .then(res => res.json())
-            .then(data => setBiodatas(data))
+            .then(data => {
+                const latest = [...data].reverse().slice(0, 4);
+                setBiodatas(latest);
+            })
             .catch(err => console.error(err));
     }, []);
 
