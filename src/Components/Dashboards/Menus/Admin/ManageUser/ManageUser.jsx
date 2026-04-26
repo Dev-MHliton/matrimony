@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Loading from "../../../../../shared/Loading";
 import { FaEye, FaEdit, FaTrash, FaTimes } from "react-icons/fa";
+import SectionTitle from "../../../../Home/SectionTitle/SectionTitle";
 
 const ManageUser = () => {
 
@@ -63,6 +64,11 @@ const ManageUser = () => {
         <section className="p-2 md:p-4 w-full overflow-hidden">
 
             <div className="bg-black p-2 sm:p-3 md:p-6 rounded-xl overflow-hidden">
+
+                <SectionTitle
+                    heading={"Manage Users"}
+                ></SectionTitle>
+
 
                 {/* TABLE WRAPPER */}
                 <div className="w-full overflow-x-auto scrollbar-thin">
