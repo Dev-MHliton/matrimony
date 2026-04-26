@@ -90,10 +90,17 @@ const CreateBiodata = () => {
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(biodataInfo)
             });
+
             const data = await res.json();
             console.log(data);
-            alert("Biodata submitted successfully!");
-            navigate(`/biodata/${data._id}`); // navigate to view profile page
+
+            if (data.success) {
+                alert("Biodata submitted successfully!");
+                navigate("/home");
+            } else {
+                alert("Submission failed!");
+            }
+
         } catch (err) {
             console.log(err);
             alert("Error submitting biodata.");
