@@ -44,48 +44,6 @@ const AdminSetting = () => {
 
     return (
         <div className="min-h-screen bg-[#0f0f0f] text-white flex">
-            {/* Sidebar */}
-            <div className="w-72 bg-[#efe7c2] text-black p-5 hidden md:flex flex-col justify-between">
-                <div>
-                    <h1 className="text-2xl font-bold mb-10">💍 Matrimony Admin</h1>
-
-                    <div className="space-y-3">
-                        <button className="w-full text-left px-4 py-3 rounded-xl hover:bg-yellow-400 transition">
-                            🏠 Dashboard
-                        </button>
-
-                        <button className="w-full text-left px-4 py-3 rounded-xl hover:bg-yellow-400 transition">
-                            👥 Manage Users
-                        </button>
-
-                        <button className="w-full text-left px-4 py-3 rounded-xl hover:bg-yellow-400 transition">
-                            ⏳ Pending Approvals
-                        </button>
-
-                        <button className="w-full text-left px-4 py-3 rounded-xl hover:bg-yellow-400 transition">
-                            👑 Subscriptions
-                        </button>
-
-                        <button className="w-full text-left px-4 py-3 rounded-xl bg-yellow-400 font-semibold">
-                            ⚙️ Settings
-                        </button>
-                    </div>
-                </div>
-
-                <div className="border-t pt-4 mt-6">
-                    <div className="flex items-center gap-3">
-                        <img
-                            src="https://i.ibb.co/4pDNDk1/avatar.png"
-                            alt="admin"
-                            className="w-12 h-12 rounded-full"
-                        />
-                        <div>
-                            <h3 className="font-semibold">Admin</h3>
-                            <p className="text-sm text-gray-700">admin@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             {/* Main Content */}
             <div className="flex-1 p-4 md:p-8">
