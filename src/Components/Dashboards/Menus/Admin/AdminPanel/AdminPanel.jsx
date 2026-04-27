@@ -106,7 +106,7 @@ const AdminPanel = () => {
                 </div>
 
                 {/* BAR CHART */}
-                <div className="bg-gray-900 p-4 md:p-5 rounded-xl h-72 md:h-80">
+                <div className="bg-gray-900 p-4 md:p-7 rounded-xl h-72 md:h-80">
                     <h3 className="mb-3 text-sm md:text-base">Overview</h3>
 
                     <ResponsiveContainer>
