@@ -6,13 +6,12 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import DashboardNavbar from "../../shared/DashboardNavbar";
 
-const Dashboard = () => { //{ role }
+const Dashboard = ({ role }) => {
     const { logOut } = useContext(AuthContext);
 
     const [openSidebar, setOpenSidebar] = useState(false);
     const location = useLocation();
 
-    const role = "admin";
     const menus = role === "admin" ? adminMenu : userMenu;
 
     // close sidebar on route change
@@ -49,6 +48,7 @@ const Dashboard = () => { //{ role }
                         logOut={logOut}
                         menus={menus}
                     />
+
                 </div>
 
                 {/* Navbar................................................................ */}

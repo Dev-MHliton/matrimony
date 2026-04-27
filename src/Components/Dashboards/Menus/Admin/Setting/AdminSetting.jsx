@@ -43,7 +43,7 @@ const AdminSetting = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-[#0f0f0f] text-white flex">
+        <div className="min-h-screen rounded-xl bg-[#0f0f0f] text-white flex">
 
             {/* Main Content */}
             <div className="flex-1 p-4 md:p-8">

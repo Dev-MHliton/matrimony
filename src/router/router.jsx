@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
             // Admin Routes
             { path: "adminPanel", Component: AdminPanel },
             { path: "admin/manage-users", Component: ManageUser },
-            { path: "admin/Settings", Component: AdminSetting },
+            { path: "admin/settings", Component: AdminSetting },
 
         ]
     },
