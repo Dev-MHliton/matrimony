@@ -16,7 +16,14 @@ const AdminPanel = () => {
 
     const male = users.filter(u => u.biodataType === "Male").length;
     const female = users.filter(u => u.biodataType === "Female").length;
-    const premium = users.filter(u => u.isPremium).length;
+    const specialProfessions = ["doctor", "professor", "engineer", "actor", "sportsman"];
+
+    const premium = users.filter(user =>
+        user.profession &&
+        specialProfessions.some(prof =>
+            user.profession.toLowerCase().includes(prof)
+        )
+    ).length;
 
     const chartData = [
         { name: "Male", value: male },
