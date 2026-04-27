@@ -18,6 +18,7 @@ import Favorites from "../Components/Dashboards/Menus/Users/Favorites/Favorites"
 import Profile_Settings_Page from "../Components/Dashboards/User_Submenus/Profile Settings Page/Profile_Settings_Page";
 import ManageUser from "../Components/Dashboards/Menus/Admin/ManageUser/ManageUser";
 import AdminPanel from "../Components/Dashboards/Menus/Admin/AdminPanel/AdminPanel";
+import AdminSetting from "../Components/Dashboards/Menus/Admin/Setting/AdminSetting";
 
 export const router = createBrowserRouter([
     {
@@ -58,6 +59,7 @@ export const router = createBrowserRouter([
             // Admin Routes
             { path: "adminPanel", Component: AdminPanel },
             { path: "admin/manage-users", Component: ManageUser },
+            { path: "admin/Settings", Component: AdminSetting },
 
         ]
     },
