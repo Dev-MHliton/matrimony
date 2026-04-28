@@ -6,13 +6,14 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import DashboardNavbar from "../../shared/DashboardNavbar";
 
-const Dashboard = () => {//{ role }
-    const { logOut } = useContext(AuthContext);
+const Dashboard = () => { //{ role }
+    const { user, logOut } = useContext(AuthContext);
 
     const [openSidebar, setOpenSidebar] = useState(false);
     const location = useLocation();
 
-    const role = "admin"
+    //  Eta just dev_testing er jonno No role based  
+    const role = user?.email === "admin@gmail.com" ? "admin" : "user";
     const menus = role === "admin" ? adminMenu : userMenu;
 
     // close sidebar on route change
