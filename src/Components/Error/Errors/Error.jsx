@@ -17,12 +17,12 @@ const Error = () => {
                 <source src={error} type="video/mp4" />
             </video>
 
-            {/* <Link
+            <Link
                 to="/"
                 className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-lg transition duration-300 shadow-lg"
             >
                 Go Back
-            </Link> */}
+            </Link>
         </section>
     );
 };
