@@ -16,6 +16,7 @@ const DashboardNavbar = () => {
         }
     };
 
+    const role = user?.email === "liton72524nk@gmail.com" ? "admin" : "user";
     return (
         <nav className="bg-amber-100 px-3 sm:px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0">
 
@@ -24,7 +25,8 @@ const DashboardNavbar = () => {
                 className="text-lg sm:text-2xl font-bold text-center sm:text-left bg-clip-text text-transparent
                 bg-linear-to-r from-orange-700 via-red-700 to-yellow-900"
             >
-                {user?.role === "admin" ? "Admin Dashboard" : "User Dashboard"}
+                {/* {user?.role === "admin" ? "Admin" : "User"} */}
+                {role === "admin" ? "Admin Dashboard" : "User Dashboard"}
             </div>
 
             {/* Right side */}
@@ -55,7 +57,8 @@ const DashboardNavbar = () => {
                         )}
 
                         <span className="font-medium text-gray-800 text-sm sm:text-base whitespace-nowrap">
-                            {user?.role === "admin" ? "Admin" : "User"}
+                            {/* {user?.role === "admin" ? "Admin" : "User"} */}
+                            {role === "admin" ? "Admin" : "User"}
                         </span>
                     </div>
 
