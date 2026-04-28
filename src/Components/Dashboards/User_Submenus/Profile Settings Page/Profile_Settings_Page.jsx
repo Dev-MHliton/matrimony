@@ -4,6 +4,7 @@ import { AuthContext } from "../../../../context/AuthContext";
 const Profile_Settings_Page = () => {
     const { user } = useContext(AuthContext);
 
+    // Profile form 
     const [profile, setProfile] = useState({
         name: "",
         email: "",
