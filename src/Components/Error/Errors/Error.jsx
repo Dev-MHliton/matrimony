@@ -21,7 +21,7 @@ const Error = () => {
                 to="/"
                 className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-lg transition duration-300 shadow-lg"
             >
-                Back to Home
+                Go Back
             </Link> */}
         </section>
     );
