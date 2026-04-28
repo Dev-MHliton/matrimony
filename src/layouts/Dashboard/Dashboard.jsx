@@ -75,5 +75,4 @@ const Dashboard = ({ role }) => {
         </section>
     );
 };
-
 export default Dashboard;
