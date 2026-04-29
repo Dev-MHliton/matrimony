@@ -25,7 +25,7 @@ const CreateBiodata = () => {
     const [step, setStep] = useState(1);
     const [error, setError] = useState("");
     const [formData, setFormData] = useState({
-        biodataType: "", profileImage: "", dateOfBirth: "", age: "",
+        username: "", biodataType: "", profileImage: "", dateOfBirth: "", age: "",
         height: "", weight: "", maritalStatus: "", religion: "", profession: "", monthlyIncome: "",
         fatherName: "", motherName: "", fatherProfession: "", motherProfession: "",
         familyStatus: "", familyType: "", country: "", district: "",
