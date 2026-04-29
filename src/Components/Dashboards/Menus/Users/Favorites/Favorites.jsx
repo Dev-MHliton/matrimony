@@ -49,6 +49,10 @@ const Favorites = () => {
             {/* Title */}
             <SectionTitle heading={"My Favorites"} />
 
+            <p className="text-gray-600 mt-2">
+                Total Favorites: {favorites.length}
+            </p>
+
             {/* Loading */}
             {loading && (
                 <Loading></Loading>
