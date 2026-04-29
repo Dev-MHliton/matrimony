@@ -11,7 +11,7 @@ const familyTypes = ["Nuclear", "Joint"];
 const steps = ["Basic Info", "Family Details", "Address Info", "Education", "Partner Preferences"];
 
 const requiredFields = {
-    1: ["biodataType", "profileImage", "dateOfBirth", "height", "weight", "maritalStatus", "religion"],
+    1: ["username", "biodataType", "profileImage", "dateOfBirth", "height", "weight", "maritalStatus", "religion"],
     2: ["fatherName", "motherName", "familyStatus", "familyType"],
     3: ["country", "district", "presentAddress", "permanentAddress"],
     4: ["highestEducation", "aboutMe"],
