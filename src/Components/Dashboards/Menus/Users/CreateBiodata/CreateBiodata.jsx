@@ -80,7 +80,8 @@ const CreateBiodata = () => {
 
         const biodataInfo = {
             ...formData,
-            name: user?.displayName || "",
+            // name: user?.displayName || "",
+            name: formData.username || user?.displayName || "",
             email: user?.email || ""
         };
 
