@@ -104,14 +104,16 @@ const SearchBiodata = () => {
     return (
         <section className="px-4 sm:px-6 pb-4 md:px-12 relative">
 
+
+            {/* title  */}
+            <title>Dashboard - Search Biodata</title>
+
             {/* Section title */}
             <SectionTitle
                 heading={"Search Biodata"}
             >
             </SectionTitle>
 
-            {/* title  */}
-            <title>Dashboard - Search Biodata</title>
 
             {/* Filter Box */}
             <div className="bg-gray-400 text-gray-800 border border-gray-200 shadow-md rounded-lg p-4 sm:p-6 mb-6 md:pr-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4 items-end">
