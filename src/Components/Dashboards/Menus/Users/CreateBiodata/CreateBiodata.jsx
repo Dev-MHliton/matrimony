@@ -157,7 +157,15 @@ const CreateBiodata = () => {
                     <form onSubmit={handleSubmit}>
                         {/* Step 1 */}
                         {step === 1 && (
+
                             <div className="space-y-4">
+
+                                {/* Manually username setup  */}
+                                <input
+                                    type="text" name="username" value={formData.username} onChange={handleChange} placeholder="Enter Username"
+                                    className="w-full border border-gray-700 p-3 rounded bg-black text-white"
+                                />
+
                                 <select name="biodataType" value={formData.biodataType} onChange={handleChange}
                                     className="w-full border border-gray-700 p-3 rounded bg-black text-white"
                                 >
@@ -168,11 +176,6 @@ const CreateBiodata = () => {
                                         </option>
                                     ))}
                                 </select>
-
-                                <input
-                                    type="text" name="username" value={formData.username} onChange={handleChange} placeholder="Enter Username"
-                                    className="w-full border border-gray-700 p-3 rounded bg-black text-white"
-                                />
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                     <select name="maritalStatus" value={formData.maritalStatus} onChange={handleChange}
