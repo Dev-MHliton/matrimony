@@ -199,6 +199,7 @@ const CreateBiodata = () => {
                                             </option>
                                         ))}
                                     </select>
+
                                 </div>
 
                                 <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
