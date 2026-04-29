@@ -49,25 +49,34 @@ const Favorites = () => {
             {/* Title */}
             <SectionTitle heading={"My Favorites"} />
 
-            <div className="mt-3 inline-flex items-center gap-3 bg-white border border-rose-100 shadow-sm rounded-xl px-4 py-3">
+            {/*Loading */}
+            {loading && <Loading />}
 
-                {/* Left Indicator */}
-                <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-600 text-lg">
-                    ❤️
+            {/* Results Summary */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-white border border-gray-200 rounded-xl shadow-sm px-4 py-3 mt-6 mb-4">
+
+                <div>
+                    <h2 className="text-lg md:text-xl font-bold text-gray-800">
+                        Favorites Biodatas!
+                    </h2>
+
+                    <p className="text-sm text-gray-500 mt-1">
+                        Showing
+                        <span className="font-semibold text-green-600 mx-1">
+                            {favorites.length}
+                        </span>
+                        favorites profile{favorites.length !== 1 && "s"}
+                    </p>
                 </div>
 
-                {/* Text Content */}
-                <div>
-                    <p className="text-xs uppercase tracking-wide text-gray-400 font-medium">
-                        Shortlisted Profiles
-                    </p>
-
-                    <h3 className="text-lg font-semibold text-gray-800">
-                        {favorites.length} Profiles Saved
-                    </h3>
+                <div className="mt-3 sm:mt-0">
+                    <span className="bg-green-100 text-green-700 text-sm font-medium px-4 py-2 rounded-full">
+                        Total: {favorites.length}
+                    </span>
                 </div>
 
             </div>
+
 
             {/* Loading */}
             {loading && (

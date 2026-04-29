@@ -115,6 +115,7 @@ const SearchBiodata = () => {
             </SectionTitle>
 
 
+
             {/* Filter Box */}
             <div className="bg-gray-400 text-gray-800 border border-gray-200 shadow-md rounded-lg p-4 sm:p-6 mb-6 md:pr-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4 items-end">
 
@@ -193,6 +194,32 @@ const SearchBiodata = () => {
 
             {/*Loading */}
             {loading && <Loading />}
+
+
+            {/* Results Summary */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-white border border-gray-200 rounded-xl shadow-sm px-4 py-3 mt-6 mb-4">
+
+                <div>
+                    <h2 className="text-lg md:text-xl font-bold text-gray-800">
+                        Search Results
+                    </h2>
+
+                    <p className="text-sm text-gray-500 mt-1">
+                        Showing
+                        <span className="font-semibold text-green-600 mx-1">
+                            {biodatas.length}
+                        </span>
+                        biodata profile{biodatas.length !== 1 && "s"}
+                    </p>
+                </div>
+
+                <div className="mt-3 sm:mt-0">
+                    <span className="bg-green-100 text-green-700 text-sm font-medium px-4 py-2 rounded-full">
+                        Total: {biodatas.length}
+                    </span>
+                </div>
+
+            </div>
 
             {/* Card Start Now here---------------------------------------------------------------------------------------! */}
 
