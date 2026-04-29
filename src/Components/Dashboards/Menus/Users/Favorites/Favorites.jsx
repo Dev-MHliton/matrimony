@@ -49,9 +49,25 @@ const Favorites = () => {
             {/* Title */}
             <SectionTitle heading={"My Favorites"} />
 
-            <p className="text-gray-600 mt-2">
-                Total Favorites: {favorites.length}
-            </p>
+            <div className="mt-3 inline-flex items-center gap-3 bg-white border border-rose-100 shadow-sm rounded-xl px-4 py-3">
+
+                {/* Left Indicator */}
+                <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-600 text-lg">
+                    ❤️
+                </div>
+
+                {/* Text Content */}
+                <div>
+                    <p className="text-xs uppercase tracking-wide text-gray-400 font-medium">
+                        Shortlisted Profiles
+                    </p>
+
+                    <h3 className="text-lg font-semibold text-gray-800">
+                        {favorites.length} Profiles Saved
+                    </h3>
+                </div>
+
+            </div>
 
             {/* Loading */}
             {loading && (
