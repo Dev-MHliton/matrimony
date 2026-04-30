@@ -130,10 +130,8 @@ const Favorites = () => {
                                 <p className="text-xs text-gray-500 truncate">
                                     📍 {fav.biodata?.district || "Unknown"}
                                 </p>
-
                             </div>
                         </div>
-
 
                         {/* Right Side: Buttons */}
                         <div className="flex gap-2 w-full sm:w-auto">
