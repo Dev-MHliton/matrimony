@@ -133,6 +133,7 @@ const Favorites = () => {
                             </div>
                         </div>
 
+
                         {/* Right Side: Buttons */}
                         <div className="flex gap-2 w-full sm:w-auto">
 
